@@ -13,12 +13,17 @@ a {
 	text-decoration: inherit;
 }
 a:hover {
+	color: white;
 }
 
 body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
+	color: hsl(0, 0%, 10%);
+}
+i {
+	color: hsl(0, 0%, 40%);
 }
 
 h1 {
@@ -29,6 +34,6 @@ h1 {
 #app {
 	max-width: 1280px;
 	margin: 0 auto;
-	padding: 2rem;
+
 	text-align: center;
 }
