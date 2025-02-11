@@ -5,7 +5,7 @@ import TaskDetails from "./components/TaskDetails.vue";
 export default defineComponent({
 	name: "App",
 	data() {
-		return { taskStore: useTaskStore() };
+		return { taskStore: useTaskStore(), filter: "all" };
 	},
 	components: { TaskDetails },
 	created() {},
@@ -17,9 +17,20 @@ export default defineComponent({
 		<img src="./assets/pinia-logo.svg.png" alt="pinia logo" />
 		<h1>Pinia Tasks</h1>
 	</header>
+	<nav class="filter">
+		<button @click="filter = 'all'">All Tasks</button
+		><button @click="filter = 'important'">Important Tasks</button>
+	</nav>
 	<main>
-		<div class="task-list">
+		<div class="task-list" v-if="filter === 'all'">
+			<p>You have {{ taskStore.totalCount }} tasks left.</p>
 			<div v-for="task in taskStore.tasks">
+				<TaskDetails :task="task" />
+			</div>
+		</div>
+		<div class="task-list" v-if="filter === 'important'">
+			<p>You have {{ taskStore.impCount }} important tasks left.</p>
+			<div v-for="task in taskStore.getImportant">
 				<TaskDetails :task="task" />
 			</div>
 		</div>
@@ -37,5 +48,22 @@ img {
 .task-list {
 	max-width: 640px;
 	margin: 20px auto;
+}
+
+.filter {
+	width: 640px;
+	margin: 10px auto;
+	text-align: center;
+
+	button {
+		display: inline-block;
+		margin-left: 12px;
+		background-color: hsl(0, 0%, 100%);
+		border: 2px solid hsl(0, 0%, 35%);
+		border-radius: 4px;
+		padding: 4px 8px;
+		cursor: pointer;
+		font-size: 0.8rem;
+	}
 }
 </style>
