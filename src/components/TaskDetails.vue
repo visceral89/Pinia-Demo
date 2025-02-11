@@ -30,7 +30,7 @@ export default defineComponent({
 
 .task {
 	padding: 6px 1.5rem;
-	background-color: hsl(0, 0%, 95%);
+	background-color: hsl(0, 0%, 100%);
 	margin-top: 1rem;
 	border-radius: 4px;
 	box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.05);

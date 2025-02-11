@@ -28,7 +28,7 @@ export default defineComponent({
 
 <style scoped>
 header {
-	background: hsl(0, 0%, 95%);
+	background: hsl(0, 0%, 90%);
 	padding: 1rem;
 }
 img {
