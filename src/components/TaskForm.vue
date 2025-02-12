@@ -28,4 +28,26 @@ export default defineComponent({
 		<button>Add</button>
 	</form>
 </template>
-<style scoped></style>
+<style scoped>
+form {
+	padding: 20px 0;
+	border: 0;
+	padding: 1rem;
+	color: hsl(0, 0%, 33%);
+	font-size: 1rem;
+
+	button {
+		background: #ffd859;
+		border: 0;
+		border-radius: 6px;
+		padding: 1rem;
+		cursor: pointer;
+	}
+	input {
+		padding: 1rem;
+		border: 0;
+		margin: 1rem;
+		color: hsl(0, 0%, 33%);
+	}
+}
+</style>
