@@ -40,8 +40,8 @@ export const useTaskStore = defineStore("taskStore", {
 	actions: {
 		deleteTask() {},
 		importantTask() {},
-		addTask(task) {
-			task.task.push();
+		addTask(task: Task) {
+			this.tasks.push(task);
 		},
 	},
 });
