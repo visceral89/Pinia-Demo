@@ -2,12 +2,13 @@
 import { defineComponent } from "vue";
 import { useTaskStore } from "./stores/TaskStore";
 import TaskDetails from "./components/TaskDetails.vue";
+import TaskForm from "./components/TaskForm.vue";
 export default defineComponent({
 	name: "App",
 	data() {
 		return { taskStore: useTaskStore(), filter: "all" };
 	},
-	components: { TaskDetails },
+	components: { TaskDetails, TaskForm },
 	created() {},
 });
 </script>
@@ -17,6 +18,9 @@ export default defineComponent({
 		<img src="./assets/pinia-logo.svg.png" alt="pinia logo" />
 		<h1>Pinia Tasks</h1>
 	</header>
+	<div class="new-task-form">
+		<TaskForm />
+	</div>
 	<nav class="filter">
 		<button @click="filter = 'all'">All Tasks</button
 		><button @click="filter = 'important'">Important Tasks</button>

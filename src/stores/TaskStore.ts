@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
+import { v4 as uuidv4 } from "uuid";
 
 interface Task {
-	id: number;
+	id: string;
 	title: string;
 	isImportant: boolean;
 }
@@ -20,8 +21,8 @@ export const useTaskStore = defineStore("taskStore", {
     */
 	state: (): TaskState => ({
 		tasks: [
-			{ id: 1, title: "Buy Milk", isImportant: false },
-			{ id: 2, title: "Warhammer Night", isImportant: true },
+			{ id: uuidv4(), title: "Buy Milk", isImportant: false },
+			{ id: uuidv4(), title: "Warhammer Night", isImportant: true },
 		],
 	}),
 	getters: {
@@ -38,8 +39,16 @@ export const useTaskStore = defineStore("taskStore", {
 		},
 	},
 	actions: {
-		deleteTask() {},
-		importantTask() {},
+		deleteTask(id: string) {
+			this.tasks = this.tasks.filter((t) => {
+				return t.id !== id;
+			});
+		},
+		importantTask(id: string) {
+			const task = this.tasks.find((t) => t.id === id);
+			if (!task) return;
+			task.isImportant = !task.isImportant;
+		},
 		addTask(task: Task) {
 			this.tasks.push(task);
 		},

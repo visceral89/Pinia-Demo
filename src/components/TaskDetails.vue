@@ -1,9 +1,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useTaskStore } from "../stores/TaskStore";
 export default defineComponent({
 	props: ["task"],
 	data() {
-		return {};
+		return { taskStore: useTaskStore() };
 	},
 });
 </script>
