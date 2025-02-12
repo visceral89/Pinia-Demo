@@ -12,8 +12,8 @@ export default defineComponent({
 	<div class="task">
 		<h3>{{ task.title }}</h3>
 		<div class="icons">
-			<i class="material-icons delete">delete</i>
-			<i class="material-icons favorite">favorite</i>
+			<i class="material-icons delete" @click="taskStore.deleteTask(task.id)">delete</i>
+			<i class="material-icons favorite" @click="taskStore.importantTask(task.id)">favorite</i>
 		</div>
 	</div>
 </template>
